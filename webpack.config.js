@@ -12,10 +12,27 @@ module.exports = {
     entry: './src/index.js',
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'some cool title'
+            template: './src/index.html'
         })
     ],
     devtool: 'inline-source-map',
+    module: {
+        rules: [
+                {
+                    test: /\.(t|j)sx?$/,
+                    use: [
+                        'babel-loader',
+                        'ts-loader'
+                    ]
+                },
+            ]
+    },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.jsx', '.js'],
+        alias: {
+            components: path.resolve(__dirname, '/src/components')
+        }
+    },
     devServer: {
         contentBase: './dist',
         hot: true
