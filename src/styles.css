@@ -1,0 +1,8 @@
+.background-class {
+    background: url('./assets/cat.jpeg') center center;
+    background-attachment: cover;
+    background-repeat: no-repeat;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}
