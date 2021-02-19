@@ -15,7 +15,7 @@ const Button: React.FC<ButtonProps> = ({ children, onClick }) => (
         px-4
         py-2
         rounded-b
-        `}
+    `}
   >
     {children}
   </button>
