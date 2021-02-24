@@ -1,25 +1,28 @@
-/**
- * Fake API that mimics api to login
- */
+import axios from 'axios';
 
- type LoginPayload = {
+export type LoginPayload = {
     name: string,
     password: string,
  }
+
 class IAMAPI {
   // eslint-disable-next-line class-methods-use-this
-  get(payload: LoginPayload) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        // please don't send the username and password as a response in real life lol
-        resolve({ data: 'token', payload });
-      }, getRandomInt(5, 1) * 1000);
-    });
+  login(payload: LoginPayload):Promise<{data: string}> {
+    if (!payload.name || !payload.password) {
+      // fake api error broski :)
+      return new Promise((_, reject) => {
+        reject(new Error('username and password are required'));
+      });
+    }
+    return axios.get('https://my-json-server.typicode.com/typicode/demo/profile')
+      .then((data: any) => (
+        {
+          data: data.name,
+        }
+      ));
   }
 }
 
-function getRandomInt(max:number, min:number) {
-  return Math.floor(Math.random() * Math.floor(max - min)) + min;
-}
+const API = new IAMAPI();
 
-export default new IAMAPI();
+export default API;

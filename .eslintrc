@@ -12,7 +12,8 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "airbnb"
+        "airbnb",
+        "plugin:@typescript-eslint/recommended"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -24,7 +25,7 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint"
+        "@typescript-eslint",
     ],
     "rules": {
 		"jsx-a11y/label-has-associated-control": [ "error", {
@@ -41,6 +42,7 @@
         "quotes": ["error", "single", {"allowTemplateLiterals": true}],
         "react/prop-types": 0,
         "no-use-before-define": 0,
-        "import/no-unresolved": 2
+        "import/no-unresolved": 2,
+        "import/no-extraneous-dependencies": ["error", {"devDependencies": ["**/*.test.tsx", "**/*.spec.tsx", "**/*.js"]}]
     }
 }
