@@ -11,7 +11,8 @@ module.exports = {
                     "node": true
                 }
             }
-        ]
+        ],
+        '@babel/preset-typescript'
     ],
     "plugins": [
         "@babel/plugin-transform-react-constant-elements",
